@@ -16,7 +16,7 @@ A Python context manager for saving and loading objects to/from memory and files
 To use the `ContextManager`, simply import it and create a new instance. You can then use the `save` and `load` methods to save and load objects to/from memory and files.
 
 Here is an example of using the `ContextManager` to save and load an object to/from memory:
-```
+```python
 from context import ContextManager
 
 # Create a new context manager
@@ -34,7 +34,7 @@ print(loaded_object)  # {'key': 'value'}
 You can also use the `ContextManager` to save and load objects to/from files. To do this, you can use the `save_to_file` and `load_from_file` methods.
 
 Here is an example of using the `ContextManager` to save and load an object to/from a Pickle file:
-```
+```python
 from context import ContextManager
 
 # Create a new context manager
@@ -52,7 +52,7 @@ print(loaded_object)  # {'key': 'value'}
 You can also use the `ContextManager` to list all contexts and clear all objects and files. To do this, you can use the `list_contexts` and `clear` methods.
 
 Here is an example of using the `ContextManager` to list all contexts and clear all objects and files:
-```
+```python
 from context import ContextManager
 
 # Create a new context manager
