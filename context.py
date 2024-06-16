@@ -1,8 +1,6 @@
 import json
 import os
 import pickle
-import sys
-import types
 
 class ContextManager:
     _objects = {}
@@ -76,10 +74,10 @@ class ContextManager:
             file_format (str): The file format to use. Supported formats are "pickle" and "json".
         """
         if file_format == "pickle":
-            with open(ObjectSaver._get_file_path(context_name, "pickle"), "wb") as f:
+            with open(ContextManager._get_file_path(context_name, "pickle"), "wb") as f:
                 pickle.dump(obj, f)
         elif file_format == "json":
-            with open(ObjectSaver._get_file_path(context_name, "json"), "w") as f:
+            with open(ContextManager._get_file_path(context_name, "json"), "w") as f:
                 json.dump(obj, f)
 
     @staticmethod
@@ -94,10 +92,10 @@ class ContextManager:
             object: Theloaded object.
         """
         if file_format == "pickle":
-            with open(ObjectSaver._get_file_path(context_name, "pickle"), "rb") as f:
+            with open(ContextManager._get_file_path(context_name, "pickle"), "rb") as f:
                 return pickle.load(f)
         elif file_format == "json":
-            with open(ObjectSaver._get_file_path(context_name, "json"), "r") as f:
+            with open(ContextManager._get_file_path(context_name, "json"), "r") as f:
                 return json.load(f)
 
     @staticmethod
@@ -112,7 +110,7 @@ class ContextManager:
             str: The file path.
         """
         file_name = f"{context_name}.{file_format}"
-        return os.path.join(ObjectSaver._file_dir, file_name)
+        return os.path.join(ContextManager._file_dir, file_name)
 
     @classmethod
     def list_contexts(cls):
